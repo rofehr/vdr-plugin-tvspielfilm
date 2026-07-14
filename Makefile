@@ -74,7 +74,7 @@ libvdr-$(PLUGIN).so: tvspielfilm.o $(OBJS)
 		
 install-lib: libvdr-$(PLUGIN).so
 	install -d $(DESTDIR)$(LIBDIR)
-	install -m755 libvdr-$(PLUGIN).so \
+	install -m755 libvdr-$(PLUGIN).so.$(APIVERSION) \
 		$(DESTDIR)$(LIBDIR)/libvdr-$(PLUGIN).so.$(APIVERSION)
 		
 install: install-lib
