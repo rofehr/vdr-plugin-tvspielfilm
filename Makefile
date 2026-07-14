@@ -66,8 +66,12 @@ tvspielfilm.o: tvspielfilm.c
 	$(CXX) $(CXXFLAGS) -c $(DEFINES) $(INCLUDES) -o $@ $<
 
 libvdr-$(PLUGIN).so: tvspielfilm.o $(OBJS)
-	$(CXX) $(CXXFLAGS) -shared $(LIBS) -Wl,-soname=$@.$(APIVERSION) -o $@ tvspielfilm.o $(filter-out tvspielfilm.o,$(OBJS))
-
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) \
+	    -shared \
+	    -Wl,-soname=$@.$(APIVERSION) \
+	    -o $@ tvspielfilm.o $(filter-out tvspielfilm.o,$(OBJS)) \
+	    $(LIBS)
+		
 install-lib: libvdr-$(PLUGIN).so
 	install -d $(DESTDIR)$(LIBDIR)
 	install -m755 libvdr-$(PLUGIN).so \
