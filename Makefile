@@ -20,7 +20,7 @@ LIBDIR = $(call PKGCFG,libdir)
 
 ### Allow user defined options to overwrite defaults:
 
--include $(VDRDIR)/Make.config
+-include $(VDRDIR)/Make.global
 
 ### The version number of VDR's plugin API:
 
