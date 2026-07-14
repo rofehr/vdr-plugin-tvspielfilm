@@ -67,11 +67,12 @@ tvspielfilm.o: tvspielfilm.c
 
 libvdr-$(PLUGIN).so: tvspielfilm.o $(OBJS)
 	$(CXX) $(CXXFLAGS) -shared $(LIBS) -Wl,-soname=$@.$(APIVERSION) -o $@ tvspielfilm.o $(filter-out tvspielfilm.o,$(OBJS))
-	@cp --remove-destination $@ $(LIBDIR)/$@.$(APIVERSION)
 
 install-lib: libvdr-$(PLUGIN).so
-	install -D $^ $(DESTDIR)$(LIBDIR)/$^.$(APIVERSION)
-
+	install -d $(DESTDIR)$(LIBDIR)
+	install -m755 libvdr-$(PLUGIN).so \
+		$(DESTDIR)$(LIBDIR)/libvdr-$(PLUGIN).so.$(APIVERSION)
+		
 install: install-lib
 
 dist: $(I18Npo) clean
