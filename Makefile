@@ -24,7 +24,7 @@ LIBDIR = $(call PKGCFG,libdir)
 
 ### The version number of VDR's plugin API:
 
-APIVERSION = $(shell sed -n 'y/ATV/atv/; s/^\s*#\s*define\s*APIVERSION\s*"\?\([^"]*\)"\?\s*$$/\1/p' $(VDRDIR)/config.h)
+APIVERSION = $(call PKGCFG,apiversion)
 
 ### The name of the distribution archive:
 
