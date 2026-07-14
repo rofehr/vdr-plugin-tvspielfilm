@@ -15,7 +15,7 @@ CXXFLAGS ?= -g -O2 -Wall -Wextra -Wno-parentheses -Wunused-parameter -Werror=ove
 
 ### The directory environment:
 
-
+PKGCFG = $(if $(VDRDIR),$(shell pkg-config --variable=$(1) $(VDRDIR)/vdr.pc),$(shell pkg-config --variable=$(1) vdr || pkg-config --variable=$(1) ../../../vdr.pc))
 LIBDIR = $(call PKGCFG,libdir)
 
 ### Allow user defined options to overwrite defaults:

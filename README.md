@@ -76,7 +76,6 @@ Abhängigkeit: `libcurl` (curl-dev). Für BitBake/Yocto:
 DEPENDS += "curl vdr"
 RDEPENDS:${PN} += "libcurl"
 ```
-(analog zu deinem `vdr-plugin-mail`-Rezept, das ebenfalls libcurl nutzt.)
 
 ## Nächste sinnvolle Ausbaustufen
 
