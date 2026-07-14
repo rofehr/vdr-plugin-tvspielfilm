@@ -15,9 +15,8 @@ CXXFLAGS ?= -g -O2 -Wall -Wextra -Wno-parentheses -Wunused-parameter -Werror=ove
 
 ### The directory environment:
 
-VDRDIR ?= ../../..
-LIBDIR ?= ../../lib
-TMPDIR ?= /tmp
+
+LIBDIR = $(call PKGCFG,libdir)
 
 ### Allow user defined options to overwrite defaults:
 
